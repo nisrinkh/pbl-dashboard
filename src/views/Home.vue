@@ -12,13 +12,20 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div class="overlay">
-        <h1>SELAMAT DATANG, ADMIN</h1>
+        <div class="satu">
+        <div class="hero-text-container">
+        <h1>SELAMAT DATANG</h1>
+        </div>
       </div>
     </section>
 
     <!-- CONTENT -->
-    <section class="content"></section>
+    <section class="content">
+      <div class="pahlawan">
+      <h3>Bagi Operator, silakan Login.</h3>
+      </div>
+    </section>
+  
 
     <!-- FOOTER -->
     <footer class="footer">
@@ -62,6 +69,9 @@ const goLogin = () => {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rubik+Mono+One&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -117,13 +127,19 @@ body {
 }
 
 /* HERO */
+.hero-text-container {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 5px 0;
+  width: 100%;
+}
+
 .hero {
-  height: 420px;
+  height: 520px;
   background: url("../assets/KESBANGPOL2.jpg") no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  padding-bottom: 60px;
+  padding: 60px 0;
   position: relative;
 }
 
@@ -139,21 +155,46 @@ body {
   z-index: 1;
 }
 
-.overlay h1 {
-  background: rgba(255, 255, 255, 0.92);
-  padding: 18px 42px;
-  border-radius: 8px;
-  font-size: 32px;
-  font-weight: bold;
+.hero-text-container h1 {
+  font-family: "Rubik Mono One", monospace;
+  font-weight: 350;
+  font-style: normal;
+  font-size: 50px;
+  color: #252742;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 0 0 0 0;
+  padding: 5px 0;
+}
+
+.pahlawan h3 {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 20px;
   color: #252742;
   letter-spacing: 2px;
+  text-align: center;
+  margin: 0px 0 0 0;
+  padding: 5px 0;
+}
+
+.satu {
+  padding: 40px 0px;
+  position: relative;
+  top: 60px;
+  width: 100%;
+  background: #252742;
+  opacity: 0.5;
 }
 
 /* CONTENT */
 .content {
   flex: 1;
-  background: #8d96a6;
-  min-height: 220px;
+  background: #5e5f6f;
+  min-height: 160px;
+  padding: 15px 0;
+  margin-top: 0px;
 }
 
 /* FOOTER (SAMA LOGIN) */
