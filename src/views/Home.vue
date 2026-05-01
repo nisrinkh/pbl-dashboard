@@ -168,15 +168,15 @@ body {
 }
 
 .pahlawan h3 {
-  font-family: "Lato", sans-serif;
-  font-weight: 700;
+  font-family: "Arial", serif;
+  font-weight: 1000;
   font-style: italic;
-  font-size: 20px;
+  font-size: 25px;
   color: #252742;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-align: center;
   margin: 0px 0 0 0;
-  padding: 5px 0;
+  padding: 0px 0;
 }
 
 .satu {
@@ -185,7 +185,7 @@ body {
   top: 60px;
   width: 100%;
   background: #252742;
-  opacity: 0.5;
+  opacity: 0.65;
 }
 
 /* CONTENT */
