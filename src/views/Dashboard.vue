@@ -1,13 +1,10 @@
 <template>
   <div class="dashboard">
-
     <!-- Sidebar -->
     <aside class="sidebar">
       <div class="red-strip"></div>
 
       <div class="sidebar-content">
-
-        <!-- Top Menu -->
         <div>
           <div class="menu-row">
             <span>All Messages</span>
@@ -20,26 +17,51 @@
 
           <div class="line"></div>
 
-        <button class="menu-btn" @click="goRiwayat">
+
+          <button class="menu-btn" @click="goRiwayat">
             Riwayat Chat
-        </button>
+          </button>
         </div>
 
-        <!-- Logout -->
         <button class="logout-btn" @click="goHome">
           Logout ↪
         </button>
-
       </div>
     </aside>
 
-    <!-- Main Content -->
+    <!-- Main -->
     <main class="main-content">
-      <div class="welcome-text">
-        Selamat Datang, Admin!
-      </div>
-    </main>
 
+      <!-- Header FULL -->
+      <div class="top-header">
+        <h1>Dashboard</h1>
+      </div>
+
+      <!-- Content -->
+      <div class="content-area">
+        <div class="card-wrapper">
+          <h2>Hari Ini</h2>
+
+          <div class="stats">
+            <div class="card gray">
+              <h3>50</h3>
+              <p>Pesan Terkirim</p>
+            </div>
+
+            <div class="card green">
+              <h3>50/50</h3>
+              <p>Pesan Terjawab</p>
+            </div>
+
+            <div class="card pink">
+              <h3>0/50</h3>
+              <p>Pesan Tidak Terjawab</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
   </div>
 </template>
 
@@ -48,15 +70,14 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-const goRiwayat = () => {
-  router.push('/history')
-}
-
 const goHome = () => {
   router.push('/')
 }
-</script>
 
+const goRiwayat = () => {
+  router.push('/history')
+}
+</script>
 
 <style scoped>
 * {
@@ -116,7 +137,9 @@ const goHome = () => {
   font-weight: bold;
   background: white;
   cursor: pointer;
+  margin-bottom: 10px;
 }
+
 
 /* Logout */
 .logout-btn {
@@ -134,28 +157,96 @@ const goHome = () => {
 ====================== */
 .main-content {
   flex: 1;
-  background: #d9dddf;
   display: flex;
+  flex-direction: column;
+  background: #8692a3;
+  align-items: stretch;
+}
+
+/* HEADER */
+.top-header {
+  position: fixed;
+  top: 0;
+  left: 265px;
+  right: 0;
+  background: #eeeeee;
+  padding: 20px 40px;
+  z-index: 100;
+}
+
+.top-header h1 {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* CONTENT */
+.content-area {
+  margin-top: 80px;
+  padding: 30px 40px;
+}
+
+/* CARD */
+.card-wrapper {
+  background: #f4f4f4;
+  border-radius: 35px;
+  padding: 25px;
+  width: 100%;
+}
+
+.card-wrapper h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+/* GRID */
+.stats {
+  display: flex;
+  gap: 20px;
+}
+
+/* CARD DALAM */
+.card {
+  flex: 1;
+  height: 130px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.welcome-text {
-  font-size: 28px;
-  font-weight: 700;
-  color: #666;
+/* TEXT */
+.card h3 {
+  font-size: 32px;
+  margin-bottom: 8px;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 220px;
+.card p {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* WARNA */
+.gray {
+  background: #cfcfcf;
+}
+
+.green {
+  background: #cfe5b6;
+}
+
+.pink {
+  background: #efb1b1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .stats {
+    flex-direction: column;
   }
 
-  .welcome-text {
-    font-size: 22px;
-    text-align: center;
-    padding: 20px;
+  .sidebar {
+    width: 220px;
   }
 }
 </style>

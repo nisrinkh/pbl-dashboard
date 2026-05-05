@@ -34,30 +34,6 @@
       <div class="top-header">
         <h1>Riwayat Chat</h1>
       </div>
-
-      <!-- Content -->
-      <div class="content-area">
-        <div class="card-wrapper">
-          <h2>Hari Ini</h2>
-
-          <div class="stats">
-            <div class="card gray">
-              <h3>50</h3>
-              <p>Pesan Terkirim</p>
-            </div>
-
-            <div class="card green">
-              <h3>50/50</h3>
-              <p>Pesan Terjawab</p>
-            </div>
-
-            <div class="card pink">
-              <h3>0/50</h3>
-              <p>Pesan Tidak Terjawab</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </main>
   </div>
 </template>
