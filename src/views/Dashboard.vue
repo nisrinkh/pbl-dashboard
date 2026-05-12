@@ -18,11 +18,21 @@
           <div class="line"></div>
 
 
+          <!-- Menu -->
+          <button class="menu-btn active-btn" @click="goDashboard">
+            Home
+          </button>
+
           <button class="menu-btn" @click="goRiwayat">
             Riwayat Chat
           </button>
+
+          <button class="menu-btn" @click="goManage">
+            Manajemen User
+          </button>
         </div>
 
+        <!-- Logout -->
         <button class="logout-btn" @click="goHome">
           Logout ↪
         </button>
@@ -71,11 +81,19 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const goHome = () => {
-  router.push('/')
+  router.push('/') 
+}
+
+const goDashboard = () => {
+  router.push('/dashboard')
 }
 
 const goRiwayat = () => {
   router.push('/history')
+}
+
+const goManage = () => {
+  router.push('/manajemen')
 }
 </script>
 
@@ -138,6 +156,11 @@ const goRiwayat = () => {
   background: white;
   cursor: pointer;
   margin-bottom: 10px;
+}
+
+.active-btn {
+  background: #ef0033;
+  color: white;
 }
 
 

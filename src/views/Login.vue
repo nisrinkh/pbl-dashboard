@@ -17,33 +17,71 @@
       <div class="login-card">
         <h2>Login</h2>
 
-        <label>Email</label>
-        <input v-model="email" type="email" placeholder="Masukkan email" />
+     
 
-        <label>Password</label>
-        <input
-          v-model="password"
-          type="password"
-          placeholder="Masukkan password"
-        />
+        <!-- ERROR -->
+<p
+  v-if="errorMessage"
+  class="error-text"
+>
+  {{ errorMessage }}
+</p>
+
+<label>Email</label>
+<input
+  v-model="email"
+  type="email"
+  placeholder="Masukkan email"
+/>
+
+<label>Password</label>
+
+<div class="password-box">
+
+  <input
+    v-model="password"
+    :type="showPassword ? 'text' : 'password'"
+    placeholder="Masukkan password"
+  />
+
+  <button
+    type="button"
+    class="show-btn"
+    @click="showPassword = !showPassword"
+  >
+    <i
+      :class="
+        showPassword
+          ? 'fa-solid fa-eye-slash'
+          : 'fa-solid fa-eye'
+      "
+    ></i>
+  </button>
+
+</div>
 
         <button class="login-btn" @click="login">Login</button>
 
         <div class="divider">
           <span></span>
-          <p>atau</p>
-          <span></span>
+          <!-- <p></p>
+          <span></span> -->
         </div>
 
-        <button class="google-btn">
+        <!-- <button class="google-btn">
           <img
             src="https://www.svgrepo.com/show/475656/google-color.svg"
             alt="google"
           />
           Login dengan Google
-        </button>
+        </button> -->
 
-        <p class="forgot">Lupa Password? Klik di sini</p>
+        <p
+          class="forgot"
+          @click="router.push('/forgot-password')"
+        >
+          Lupa Password? Klik di sini
+        </p>
       </div>
     </main>
 
@@ -86,14 +124,75 @@ const router = useRouter()
 
 const email = ref("")
 const password = ref("")
+const showPassword = ref(false)
+const errorMessage = ref("")
 
 const login = () => {
+
+  errorMessage.value = ""
+
+  /* VALIDASI KOSONG */
   if (!email.value || !password.value) {
-    alert("Isi email dan password!")
+    errorMessage.value =
+      "Email dan password wajib diisi"
     return
   }
 
-  router.push("/")
+  /* VALIDASI FORMAT EMAIL */
+  const allowedDomains = [
+    "gmail.com",
+    "yahoo.com",
+    "outlook.com",
+    "hotmail.com",
+    "student.uns.ac.id"
+  ]
+
+  const emailPattern =
+    /^[a-zA-Z0-9._%+-]+@([a-zA-Z0-9.-]+\.[A-Za-z]{2,})$/
+
+  if (!emailPattern.test(email.value)) {
+    errorMessage.value =
+      "Format email tidak valid"
+    return
+  }
+
+  /* VALIDASI DOMAIN */
+  const emailDomain =
+    email.value.split("@")[1]
+
+  if (!allowedDomains.includes(emailDomain)) {
+    errorMessage.value =
+      "Domain email tidak diperbolehkan"
+    return
+  }
+
+  /* VALIDASI PASSWORD */
+  if (password.value.length < 8) {
+    errorMessage.value =
+      "Password minimal 8 karakter"
+    return
+  }
+
+  if (!/[A-Z]/.test(password.value)) {
+    errorMessage.value =
+      "Password harus memiliki huruf kapital"
+    return
+  }
+
+  if (!/[0-9]/.test(password.value)) {
+    errorMessage.value =
+      "Password harus memiliki angka"
+    return
+  }
+
+  if (!/[!@#$%^&*(),.?\":{}|<>]/.test(password.value)) {
+    errorMessage.value =
+      "Password harus memiliki karakter spesial"
+    return
+  }
+
+  /* LOGIN BERHASIL */
+  router.push("/dashboard")
 }
 
 /* tombol back */
@@ -199,6 +298,38 @@ body {
   border: none;
   border-radius: 30px;
   outline: none;
+  font-size: 14px;
+}
+
+/* PASSWORD */
+.password-box {
+  position: relative;
+}
+
+.password-box input {
+  width: 100%;
+  padding-right: 50px;
+}
+
+.show-btn {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  color: #252742;
+}
+
+/* ERROR */
+.error-text {
+  background: #ffd4d4;
+  color: #a40000;
+  padding: 10px;
+  border-radius: 12px;
+  margin-bottom: 15px;
   font-size: 14px;
 }
 

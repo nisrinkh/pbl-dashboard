@@ -17,11 +17,21 @@
 
           <div class="line"></div>
 
-          <button class="menu-btn active-btn" @click="goDashboard">
+          <!-- Menu -->
+          <button class="menu-btn" @click="goDashboard">
             Home
+          </button>
+
+          <button class="menu-btn active-btn" @click="goRiwayat">
+            Riwayat Chat
+          </button>
+
+          <button class="menu-btn" @click="goManage">
+            Manajemen User
           </button>
         </div>
 
+        <!-- Logout -->
         <button class="logout-btn" @click="goHome">
           Logout ↪
         </button>
@@ -49,6 +59,14 @@ const goHome = () => {
 
 const goDashboard = () => {
   router.push('/dashboard')
+}
+
+const goRiwayat = () => {
+  router.push('/history')
+}
+
+const goManage = () => {
+  router.push('/manajemen')
 }
 </script>
 
@@ -107,6 +125,7 @@ const goDashboard = () => {
   font-weight: bold;
   background: white;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 /* ACTIVE BUTTON (buat halaman aktif) */
