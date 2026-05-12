@@ -48,6 +48,17 @@
       </div>
 
       <!-- Content -->
+       <div class="content-area">
+        <div class="card-wrapper">
+          <h2>Statistik</h2>
+
+          <div class="grafik">
+            <div class="card-check gray">
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="content-area">
         <div class="card-wrapper">
           <h2>Hari Ini</h2>
@@ -222,6 +233,13 @@ const goManage = () => {
 }
 
 /* GRID */
+.grafik {
+  display: flex;
+  width: auto; 
+  height: 400px;
+  gap: 20px;
+}
+
 .stats {
   display: flex;
   gap: 20px;
@@ -249,6 +267,26 @@ const goManage = () => {
   font-weight: 600;
 }
 
+.card-check {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background: #cfcfcf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-check::before {
+  content: "Grafik Placeholder";
+  font-size: 18px;
+  color: #555;
+}
+.card-check::after {
+  content: "📊";
+  font-size: 48px;
+  margin-top: 10px;
+}
+
 /* WARNA */
 .gray {
   background: #cfcfcf;
@@ -271,5 +309,9 @@ const goManage = () => {
   .sidebar {
     width: 220px;
   }
+}
+
+.content-area + .content-area {
+  margin-top: 0px; 
 }
 </style>
