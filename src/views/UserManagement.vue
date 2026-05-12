@@ -528,6 +528,7 @@ const goRiwayat = () => {
 .content-area {
   margin-top: 80px;
   padding: 30px 40px;
+  width: 100%;
 }
 
 /* TABLE */
@@ -536,6 +537,7 @@ const goRiwayat = () => {
   border-radius: 35px;
   padding: 25px;
   width: 100%;
+  min-height: 75vh;
 }
 
 .table-top {
